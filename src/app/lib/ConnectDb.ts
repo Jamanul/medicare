@@ -19,7 +19,6 @@ export const connectDb = async () => {
     const client = new MongoClient(uri, options);
     await client.connect();
     cachedClient = client;
-
     db = client.db("medicare");
     return db;
   } catch (error) {
