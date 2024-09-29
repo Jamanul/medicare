@@ -1,19 +1,19 @@
 import { connectDb } from "@/app/lib/ConnectDb";
-import { Db } from "mongodb";
+import { Collection, Db } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
 interface User {
-    email: string,
-    password: string,
-    name: string
+    email?: string,
+    password?: string,
+    name?: string
 }
 
 export const POST =async(req:NextRequest):Promise<NextResponse>=>{
     try {
-        const user:User = req.json()
+        const user:User =await req.json()
         const {email} =user
         const db =await connectDb()
-        const usersCollection = db.collection("users")
+        const usersCollection:Collection<User> = db.collection("users")
         const isExist =await usersCollection.findOne({email: email})
         if(isExist){
             return NextResponse.json('user already exist')
