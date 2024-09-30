@@ -14,6 +14,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Close from '@mui/icons-material/Close';
+import Link from 'next/link';
+import LocalHospital from '@mui/icons-material/LocalHospital';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -38,15 +40,15 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar sx={{ bgcolor: "#E4003A" }}  position="sticky">
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <LocalHospital sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -57,7 +59,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+                MEDICARE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -69,9 +71,8 @@ function Navbar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              
               {
-                anchorElNav === null ? <MenuIcon /> : <Close/>
+                anchorElNav === null ? <MenuIcon  /> : <Close/>
               }
             </IconButton>
             <Menu
@@ -102,7 +103,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -114,7 +115,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            MEDICARE
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
